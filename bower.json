@@ -1,0 +1,26 @@
+{
+  "name": "react-starter",
+  "description": "\"Starter React project\"",
+  "main": "src/index.js",
+  "authors": [
+    "Estella Gonzalez Madison <emadison@blurb.com>",
+    "Tammy Soo <tsoo@blurb.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "buildkit": "https://s3-us-west-2.amazonaws.com/blurb-books-build-artifacts/jobs/Buildkit-Artifact/1186/buildkit-dist.tgz"
+  },
+  "keywords": [
+    "React",
+    "SCSS"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
