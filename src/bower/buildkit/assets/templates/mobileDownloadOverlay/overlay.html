@@ -1,0 +1,10 @@
+<p class="mobile-download__copy">
+  <label for="mobile-download__email-address"><%= I18n.t('mobile_download.overlay.copy') %></label>
+</p>
+<div>
+  <input type="email" id="mobile-download__email-address" class="mobile-download__field" placeholder="<%= I18n.t('mobile_download.overlay.email_address') %>" aria-required="true">
+  <% if(hasErrors) { %>
+  <span class="mobile-download__field-error" role="alert"><%= I18n.t('mobile_download.overlay.validation_error') %></span>
+  <% } %>
+</div>
+<input type="submit" class="btn btn--border-white mobile-download__submit" value="<%= I18n.t('mobile_download.overlay.cta') %>">

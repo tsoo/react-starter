@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js no-flex"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Blurb Buildkit - Modules</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <!--[if ! lt IE 8]><!-->
+<link href="../../assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/templates.css" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+<![endif]-->
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="/assets/css/ie.css">
+<![endif]-->
+
+<!--[if IE 9]>
+<link rel="stylesheet" href="/assets/css/ie9.css">
+<![endif]-->
+
+<!-- build:js assets/js/vendor/modernizr/modernizr-custom.min.js -->
+<script src="/assets/js/vendor/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .c, .highlight .cd {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #75715e;
+  font-weight: bold;
+}
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kc {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sc {
+  color: #e6db74;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .sr {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .ss {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .nn {
+  color: #f8f8f2;
+}
+.highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .vg {
+  color: #f8f8f2;
+}
+.highlight .vi {
+  color: #f8f8f2;
+}
+.highlight .nv {
+  color: #f8f8f2;
+}
+.highlight .w {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
+}
+    </style>
+  </head>
+  <body class="documentation documentation_modules documentation_modules_grid blurb-buildkit" data-controller="buildkit">
+    <nav class="bk__nav">
+      <div class="grid-construct">
+        <ul class="bk__nav-list">
+          <!-- <li class="bk__nav-list-item"><a href="/documentation/defaults.html">Defaults</a></li> --><!--
+       --><li class="bk__nav-list-item">
+            <a href="/documentation/modules">Modules</a>
+            <ul class="bk__module-list bk__nav__sub-list">
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/banner_modal.html">Banner Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/book-list.html">Book List</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/nav-browse.html">Browse (categories &amp; search)</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/buttons.html">Buttons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/center_column.html">Center Column</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/compare_table.html">Compare Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/colors.html">Colors</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/cta-banner.html">CTA Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/drawer.html">Drawer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-menu.html">Dropdown Menu</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-modal.html">Dropdown Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dynamic.html">Dynamic Content</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/email_signup.html">Email Signup</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/feature-bit.html">Feature Bit</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/grid.html">Grid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/half_bento_row.html">Half Bento Row</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/header_and_footer.html">Header and Footer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/hero_banner.html">Hero Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/horizontal_rule.html">Horizontal Rule</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/mobile_download_overlay.html">Mobile Download Overlay</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/one_column_form.html">One Column Form</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/polaroid.html">Polaroid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_highlight.html">Product Highlight</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_visualizer.html">Product Visualizer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/promo_banner.html">Promo Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/triplets.html">Triplets of Marketing</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/responsive_table.html">Responsive Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/search-box.html">Search Box</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/sprites.html">Sprites &amp; Icons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/steps.html">Steps</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tab_combo.html">Tab Combo</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tag.html">Tag</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/template_selector.html">Template Selector</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two_half_columns.html">Two Half Columns</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two-thirds-video.html">Two Thirds Video</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/typography.html">Typography</a>
+  </li>
+</ul>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="inner-wrapper  js-inner-wrapper">
+        <main class="main" role="main">
+          <div id="grid" class="bk__section">
+  <div class="grid-construct">
+    <h3 class="bk__section__heading">Multi Column CTAS</h3>
+    <p class="bk__section__description">
+        Multi columns with icons, text and cta button. You can select from
+        1, 2, 3, 4 or 5.  All columns have text and buttons left aligned by default.
+    </p>
+    <p> Size of assets for the images is limited by width but can by any height.</p>
+    <p>
+      Different modifications available for the grid module:
+      <ol>
+        <li>
+          Number of grids - add class name (<code>grid--five</code>,
+          <code>grid--four</code>, <code>grid--three</code>, <code>grid--two</code>)
+          to the outer most div
+        </li>
+        <li>
+          Background color  - For a gray background, add the <code>v-bg-white-smoke</code> class
+          to the outer most div container.
+        </li>
+        <li>
+          Alignment - To right align a column, add the <code>grid__column--right</code> class
+          to the same section as the "grid__column". To center align a column, add the
+          <code>grid__column--center</code>  class to the same section as the "grid__column".
+        </li>
+        <li>
+          Typography - By default, the heading will use all-caps, but
+          add <code>typ__letter-case</code> to the same element as <code>grid__header</code>
+          to use letter case. See <em>Five Column</em> below for an example.
+        </li>
+        <li>
+          Different spacing for icons - Add <code>grid__icons</code> to the outermost div.
+          See <em>Three Column Icons</em> below for an example.
+        </li>
+      </ol>
+    </p>
+  </div>
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Five Column</h4>
+    <p class="bk__section__description">
+      Showing images at 200x165 as an example of how the grid works with images smaller than the
+      expected default.  For the 5 column grid we expect assets at with a width of 253.
+    </p>
+  </div>
+  <div class="module grid grid--five" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column">
+    <div class="grid__content">
+      <img class="grid__img"src="http://placehold.it/200x165" alt="">
+      <h5 class="grid__header">Nobody Likes Limits</h5>
+      <div class="grid__text">Helpful tools and plug-ins let you do it all on Blurb.</div>
+    </div>
+    <div class="grid__btns">
+      <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Create</a>
+    </div>
+    </li>
+    <li class="grid__column">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/200x165" alt="">
+        <h5 class="grid__header">Beautiful, isn't it?</h5>
+        <div class="grid__text">From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Publish</a>
+      </div>
+    </li>
+    <li class="grid__column">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/200x165" alt="">
+        <h5 class="grid__header">Simply Everywhere</h5>
+        <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+      </div>
+    </li>
+    <li class="grid__column">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/200x165" alt="">
+        <h5 class="grid__header">Look anywhere and you can find beauty</h5>
+        <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+      </div>
+    </li>
+    <li class="grid__column">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/200x165" alt="">
+        <h5 class="grid__header">Beauty is all around, just open your eyes</h5>
+        <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid grid--five"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span><span class="na">src=</span><span class="s">"http://placehold.it/200x165"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Nobody Likes Limits<span class="nt">&lt;/h5&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Helpful tools and plug-ins let you do it all on Blurb.<span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/a&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/200x165"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beautiful, isn't it?<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Publish<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/200x165"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Simply Everywhere<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/200x165"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Look anywhere and you can find beauty<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/200x165"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beauty is all around, just open your eyes<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Four Column - Center Aligned</h4>
+  </div>
+  <div class="module grid grid--four" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column grid__column--center">
+      <div class="grid__content">
+        <img class="grid__img"src="http://placehold.it/317x178" alt="">
+        <h5 class="grid__header">Nobody Likes Limits</h5>
+        <div class="grid__text">Helpful tools and plug-ins let you do it all on Blurb.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Create</a>
+      </div>
+    </li>
+    <li class="grid__column grid__column--center">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/317x178" alt="">
+        <h5 class="grid__header">Beautiful, isn't it?</h5>
+        <div class="grid__text">From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Publish</a>
+      </div>
+    </li>
+    <li class="grid__column grid__column--center">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/317x178" alt="">
+        <h5 class="grid__header">Look anywhere and you can find beauty</h5>
+        <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+      </div>
+    </li>
+    <li class="grid__column grid__column--center">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/317x178" alt="">
+        <h5 class="grid__header">Beauty is all around, just open your eyes</h5>
+        <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid grid--four"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span><span class="na">src=</span><span class="s">"http://placehold.it/317x178"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Nobody Likes Limits<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Helpful tools and plug-ins let you do it all on Blurb.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/317x178"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beautiful, isn't it?<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Publish<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/317x178"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Look anywhere and you can find beauty<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/317x178"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beauty is all around, just open your eyes<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Three Column - Icons, Center Aligned</h4>
+  </div>
+  <div class="module grid  grid--three" data-controller="grid">
+  <ul class="grid-construct">
+    <li class="grid__column grid__column--center">
+      <div class="grid__content">
+          <i class="icon create"></i>
+        <h5 class="grid__header typ__letter-case">Books made easy</h5>
+        <div class="grid__text">Apps for Mac and PC ranging from easy drag-and-drop to fully custom layouts.</div>
+      </div>
+      </li>
+      <li class="grid__column grid__column--center">
+        <div class="grid__content">
+            <i class="icon award"></i>
+          <h5 class="grid__header typ__letter-case">Archival quality</h5>
+          <div class="grid__text">Photo book options with Mohawk paper and premium end sheets and linens.</div>
+        </div>
+      </li>
+      <li class="grid__column  grid__column--center">
+        <div class="grid__content">
+            <i class="icon isbn-sell"></i>
+          <h5 class="grid__header typ__letter-case">Tools for photographers</h5>
+          <div class="grid__text">Wedding photographers can use <a href="#blurbtools">Blurb tools</a> to charge clients directly.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid grid--three grid__icons"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__icon"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://assets1.blurb.com/sites/default/files/buildkit/blue_create_icon_01.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header "</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Use one of our free tools, or Adobe® tools with Blurb built in<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__icon"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://assets1.blurb.com/sites/default/files/buildkit/blue_print_icon_01.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header "</span><span class="nt">&gt;</span>Print<span class="nt">&lt;/h5&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Professional-quality books and magazines--print one copy or many<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__icon"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://assets1.blurb.com/sites/default/files/buildkit/blue_sell_icon_01.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header "</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/h5&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Sell print or ebooks from your website, on Amazon, and beyond<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Three Column - Center Aligned</h4>
+  </div>
+<div class="module grid grid--three" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column grid__column--center">
+        <div class="grid__content">
+          <img class="grid__img"src="http://placehold.it/424x264" alt="">
+          <h5 class="grid__header">Nobody likes limits.</h5>
+          <div class="grid__text">Helpful tools and plug-ins let you do it all on Blurb.</div>
+        </div>
+        <div class="grid__btns">
+          <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Create</a>
+        </div>
+      </li>
+      <li class="grid__column grid__column--center">
+        <div class="grid__content">
+          <img class="grid__img" src="http://placehold.it/424x264" alt="">
+          <h5 class="grid__header">Beautiful, isn't it?</h5>
+          <div class="grid__text">From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.</div>
+        </div>
+        <div class="grid__btns">
+          <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Publish</a>
+        </div>
+      </li>
+      <li class="grid__column grid__column--center">
+        <div class="grid__content">
+          <img class="grid__img" src="http://placehold.it/424x264" alt="">
+          <h5 class="grid__header ">Simply everywhere.</h5>
+          <div class="grid__text">We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.</div>
+        </div>
+        <div class="grid__btns">
+          <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Sell</a>
+        </div>
+      </li>
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid grid--three"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span><span class="na">src=</span><span class="s">"http://placehold.it/424x264"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Nobody likes limits.<span class="nt">&lt;/h5&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Helpful tools and plug-ins let you do it all on Blurb.<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/424x264"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beautiful, isn't it?<span class="nt">&lt;/h5&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Publish<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+      <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/424x264"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header "</span><span class="nt">&gt;</span>Simply everywhere.<span class="nt">&lt;/h5&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>We take the "self" out of self-publishing to help you sell on Blurb, Amazon, and beyond.<span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Sell<span class="nt">&lt;/a&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Two Column - Right Alignment, Gray Background</h4>
+  </div>
+  <div class="module grid v-bg-white-smoke grid--two" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column grid__column--right">
+      <div class="grid__content">
+        <img class="grid__img"src="http://placehold.it/640x450" alt="">
+        <h5 class="grid__header">Nobody likes limits.</h5>
+        <div class="grid__text">Helpful tools and plug-ins let you do it all on Blurb.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Create</a>
+      </div>
+    </li>
+    <li class="grid__column grid__column--right">
+      <div class="grid__content">
+        <img class="grid__img" src="http://placehold.it/640x450" alt="">
+        <h5 class="grid__header">Beautiful, isn't it?</h5>
+        <div class="grid__text">From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Publish</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid v-bg-white-smoke grid--two"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span><span class="na">src=</span><span class="s">"http://placehold.it/640x450"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Nobody likes limits.<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Helpful tools and plug-ins let you do it all on Blurb.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span> <span class="na">src=</span><span class="s">"http://placehold.it/640x450"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Beautiful, isn't it?<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>From glossy coffee-table books to device-ready eBooks, now you can design once and deliver often.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Publish<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">One Column - Right Alignment, Gray Background</h4>
+  </div>
+  <div class="module grid v-bg-white-smoke grid--one" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column grid__column--right">
+      <div class="grid__content">
+        <img class="grid__img"src="http://placehold.it/800x450" alt="">
+        <h5 class="grid__header">Nobody likes limits.</h5>
+        <div class="grid__text">Helpful tools and plug-ins let you do it all on Blurb.</div>
+      </div>
+      <div class="grid__btns">
+        <a href="#scrollTest" class="btn btn--border-black js-smooth-scroll">Create</a>
+      </div>
+    </li>
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid v-bg-white-smoke grid--one"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"grid__img"</span><span class="na">src=</span><span class="s">"http://placehold.it/800x450"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h5</span> <span class="na">class=</span><span class="s">"grid__header"</span><span class="nt">&gt;</span>Nobody likes limits.<span class="nt">&lt;/h5&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__text"</span><span class="nt">&gt;</span>Helpful tools and plug-ins let you do it all on Blurb.<span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid__btns"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#scrollTest"</span> <span class="na">class=</span><span class="s">"btn btn--border-black js-smooth-scroll"</span><span class="nt">&gt;</span>Create<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+
+  <h4 class="bk__section__subheading">Maintaining a single column for mobile</h4>
+  <p class="bk__section__description">
+    Apply the class <code>.grid--mobile-single-col</code> if you want to display
+    only one column for mobile. This is useful when you're embedding other modules
+    inside the grid that might not work so well on mobile.
+  </p>
+  <div class="module grid grid--three grid--mobile-single-col" data-controller="grid">
+  <ul class="grid-construct">
+  <li class="grid__column grid__column--center">
+  </ul>
+</div>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"module grid grid--three grid--mobile-single-col"</span> <span class="na">data-controller=</span><span class="s">"grid"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"grid__column grid__column--center"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+</code></pre>  </div>
+</div>
+
+        </main>
+        <!-- build:js /assets/js/mainBuildkit.min.js -->
+<script src="/assets/js/vendor/requirejs/require.js"></script>
+<script src="/assets/js/mainBuildkit.js"></script>
+<!-- endbuild -->
+
+<!-- Typekit -->
+<script>
+  (function(d) {
+    var config = { kitId: 'tar4yyp', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

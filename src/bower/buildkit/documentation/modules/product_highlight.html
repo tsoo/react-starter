@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js no-flex"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Blurb Buildkit - Modules</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <!--[if ! lt IE 8]><!-->
+<link href="../../assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/templates.css" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+<![endif]-->
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="/assets/css/ie.css">
+<![endif]-->
+
+<!--[if IE 9]>
+<link rel="stylesheet" href="/assets/css/ie9.css">
+<![endif]-->
+
+<!-- build:js assets/js/vendor/modernizr/modernizr-custom.min.js -->
+<script src="/assets/js/vendor/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .c, .highlight .cd {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #75715e;
+  font-weight: bold;
+}
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kc {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sc {
+  color: #e6db74;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .sr {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .ss {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .nn {
+  color: #f8f8f2;
+}
+.highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .vg {
+  color: #f8f8f2;
+}
+.highlight .vi {
+  color: #f8f8f2;
+}
+.highlight .nv {
+  color: #f8f8f2;
+}
+.highlight .w {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
+}
+    </style>
+  </head>
+  <body class="documentation documentation_modules documentation_modules_product_highlight blurb-buildkit" data-controller="buildkit">
+    <nav class="bk__nav">
+      <div class="grid-construct">
+        <ul class="bk__nav-list">
+          <!-- <li class="bk__nav-list-item"><a href="/documentation/defaults.html">Defaults</a></li> --><!--
+       --><li class="bk__nav-list-item">
+            <a href="/documentation/modules">Modules</a>
+            <ul class="bk__module-list bk__nav__sub-list">
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/banner_modal.html">Banner Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/book-list.html">Book List</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/nav-browse.html">Browse (categories &amp; search)</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/buttons.html">Buttons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/center_column.html">Center Column</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/compare_table.html">Compare Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/colors.html">Colors</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/cta-banner.html">CTA Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/drawer.html">Drawer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-menu.html">Dropdown Menu</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-modal.html">Dropdown Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dynamic.html">Dynamic Content</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/email_signup.html">Email Signup</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/feature-bit.html">Feature Bit</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/grid.html">Grid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/half_bento_row.html">Half Bento Row</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/header_and_footer.html">Header and Footer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/hero_banner.html">Hero Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/horizontal_rule.html">Horizontal Rule</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/mobile_download_overlay.html">Mobile Download Overlay</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/one_column_form.html">One Column Form</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/polaroid.html">Polaroid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_highlight.html">Product Highlight</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_visualizer.html">Product Visualizer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/promo_banner.html">Promo Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/triplets.html">Triplets of Marketing</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/responsive_table.html">Responsive Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/search-box.html">Search Box</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/sprites.html">Sprites &amp; Icons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/steps.html">Steps</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tab_combo.html">Tab Combo</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tag.html">Tag</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/template_selector.html">Template Selector</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two_half_columns.html">Two Half Columns</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two-thirds-video.html">Two Thirds Video</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/typography.html">Typography</a>
+  </li>
+</ul>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="inner-wrapper  js-inner-wrapper">
+        <main class="main" role="main">
+          <div id="product-highlight" class="bk__section">
+  <div class="grid-construct">
+    <h3 class="bk__section__heading">Product Highlight</h3>
+    <p class="bk__section__description">
+      This modules is for showing a product with details in a 2/3 right, 1/3 left layout.
+    </p>
+  </div>
+
+  <h4 class="bk__section__subheading">Product Highlight (default settings)</h4>
+  <section class="module product-highlight">
+  <div class="grid-construct product-highlight__wrapper">
+    <div class="product-highlight--left"><img class="v-block-center" src="/assets/img/misc/product-highlight-ipad.png" alt=""></div>
+    <div class="product-highlight--right">
+      <h2 class="headline--small">fixed format</h2>
+      <span class="product-highlight__price">only $4.99 per book</span>
+      <p class="product-highlight__copy">Alias dolorem sed et molestiae officia assumenda quidem fuga veniam voluptatem occaecati delectusVoluptas non dolorem eum debitis dicta labore</p>
+      <p class="product-highlight__copy js-tooltip-target">
+        System Requirements<button role="button" type="button" class="icon icon--toggle-sm"></button>
+      </p>
+      <section role="tooltip" class="product-highlight__tip js-tooltip-text">
+        <h6 class="product-highlight__tip__heading">Minimum System Requirements</h6>
+        <p>
+          Windows - Vista, Windows 7, Windows 8<br>
+          Intel Pentium Dual-Core or AMD Athlon II processor<br>
+          2GB of RAM<br>
+          500MB of available hard-disk space<br>
+          Screen Resolution - 1280x800<br>
+          Internet connection required for publishing
+        </p>
+        <p>
+          Mac OSX - 10.7, 10.8, 10.9, 10.10<br>
+          Intel Core 2 Duo processor<br>
+          2GB of RAM<br>
+          500MB of available hard-disk space<br>
+          Screen Resolution - 1280x800<br>
+          Internet connection required for publishing
+        </p>
+      </section>
+      <div class="product-highlight__cta">
+        <a href="#" class="btn btn--border-black">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle  js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module product-highlight"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct product-highlight__wrapper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight--left"</span><span class="nt">&gt;&lt;img</span> <span class="na">class=</span><span class="s">"v-block-center"</span> <span class="na">src=</span><span class="s">"/assets/img/misc/product-highlight-ipad.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"headline--small"</span><span class="nt">&gt;</span>fixed format<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"product-highlight__price"</span><span class="nt">&gt;</span>only $4.99 per book<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"product-highlight__copy"</span><span class="nt">&gt;</span>Voluptates quia fugiat vitae expedita qui eos perspiciatis numquam vitae explicaboEos cumque corrupti qui dignissimos voluptas similique aut facere sed error eum aliquid sunt ullam<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"product-highlight__copy js-tooltip-target"</span><span class="nt">&gt;</span>
+        System Requirements<span class="nt">&lt;button</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"icon icon--toggle-sm"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;section</span> <span class="na">role=</span><span class="s">"tooltip"</span> <span class="na">class=</span><span class="s">"product-highlight__tip js-tooltip-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"product-highlight__tip__heading"</span><span class="nt">&gt;</span>Minimum System Requirements<span class="nt">&lt;/h6&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          Windows - Vista, Windows 7, Windows 8<span class="nt">&lt;br&gt;</span>
+          Intel Pentium Dual-Core or AMD Athlon II processor<span class="nt">&lt;br&gt;</span>
+          2GB of RAM<span class="nt">&lt;br&gt;</span>
+          500MB of available hard-disk space<span class="nt">&lt;br&gt;</span>
+          Screen Resolution - 1280x800<span class="nt">&lt;br&gt;</span>
+          Internet connection required for publishing
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          Mac OSX - 10.7, 10.8, 10.9, 10.10<span class="nt">&lt;br&gt;</span>
+          Intel Core 2 Duo processor<span class="nt">&lt;br&gt;</span>
+          2GB of RAM<span class="nt">&lt;br&gt;</span>
+          500MB of available hard-disk space<span class="nt">&lt;br&gt;</span>
+          Screen Resolution - 1280x800<span class="nt">&lt;br&gt;</span>
+          Internet connection required for publishing
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight__cta"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn--border-black"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+</code></pre>  </div>
+
+  <h4 class="bk__section__subheading">Product Highlight with gray background</h4>
+  <section class="module product-highlight v-bg-white-smoke ">
+  <div class="grid-construct product-highlight__wrapper">
+    <div class="product-highlight--left"><img class="v-block-center" src="/assets/img/misc/product-highlight-ipad.png" alt=""></div>
+    <div class="product-highlight--right">
+      <h2 class="headline--small">fixed format</h2>
+      <span class="product-highlight__price">only $4.99 per book</span>
+      <p class="product-highlight__copy">Quas quas corrupti hic deleniti incidunt animi autRecusandae accusamus illum et culpa et</p>
+      <p class="product-highlight__copy js-tooltip-target">
+        System Requirements<button role="button" type="button" class="icon icon--toggle-sm"></button>
+      </p>
+      <section role="tooltip" class="product-highlight__tip js-tooltip-text">
+        <h6 class="product-highlight__tip__heading">Minimum System Requirements</h6>
+        <p>
+          Windows - Vista, Windows 7, Windows 8<br>
+          Intel Pentium Dual-Core or AMD Athlon II processor<br>
+          2GB of RAM<br>
+          500MB of available hard-disk space<br>
+          Screen Resolution - 1280x800<br>
+          Internet connection required for publishing
+        </p>
+        <p>
+          Mac OSX - 10.7, 10.8, 10.9, 10.10<br>
+          Intel Core 2 Duo processor<br>
+          2GB of RAM<br>
+          500MB of available hard-disk space<br>
+          Screen Resolution - 1280x800<br>
+          Internet connection required for publishing
+        </p>
+      </section>
+      <div class="product-highlight__cta">
+        <a href="#" class="btn btn--border-black">Get Started</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle  js-source-toggle">Show Source</a>
+<pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module product-highlight v-bg-white-smoke "</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct product-highlight__wrapper"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight--left"</span><span class="nt">&gt;&lt;img</span> <span class="na">class=</span><span class="s">"v-block-center"</span> <span class="na">src=</span><span class="s">"/assets/img/misc/product-highlight-ipad.png"</span> <span class="na">alt=</span><span class="s">""</span><span class="nt">&gt;&lt;/div&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight--right"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"headline--small"</span><span class="nt">&gt;</span>fixed format<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;span</span> <span class="na">class=</span><span class="s">"product-highlight__price"</span><span class="nt">&gt;</span>only $4.99 per book<span class="nt">&lt;/span&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"product-highlight__copy"</span><span class="nt">&gt;</span>Sed eveniet error explicabo enim id quia laborum libero voluptatem reprehenderitDignissimos esse voluptatum illum aut delectus voluptatum corporis reiciendis<span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"product-highlight__copy js-tooltip-target"</span><span class="nt">&gt;</span>
+        System Requirements<span class="nt">&lt;button</span> <span class="na">role=</span><span class="s">"button"</span> <span class="na">type=</span><span class="s">"button"</span> <span class="na">class=</span><span class="s">"icon icon--toggle-sm"</span><span class="nt">&gt;&lt;/button&gt;</span>
+      <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;section</span> <span class="na">role=</span><span class="s">"tooltip"</span> <span class="na">class=</span><span class="s">"product-highlight__tip js-tooltip-text"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;h6</span> <span class="na">class=</span><span class="s">"product-highlight__tip__heading"</span><span class="nt">&gt;</span>Minimum System Requirements<span class="nt">&lt;/h6&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          Windows - Vista, Windows 7, Windows 8<span class="nt">&lt;br&gt;</span>
+          Intel Pentium Dual-Core or AMD Athlon II processor<span class="nt">&lt;br&gt;</span>
+          2GB of RAM<span class="nt">&lt;br&gt;</span>
+          500MB of available hard-disk space<span class="nt">&lt;br&gt;</span>
+          Screen Resolution - 1280x800<span class="nt">&lt;br&gt;</span>
+          Internet connection required for publishing
+        <span class="nt">&lt;/p&gt;</span>
+        <span class="nt">&lt;p&gt;</span>
+          Mac OSX - 10.7, 10.8, 10.9, 10.10<span class="nt">&lt;br&gt;</span>
+          Intel Core 2 Duo processor<span class="nt">&lt;br&gt;</span>
+          2GB of RAM<span class="nt">&lt;br&gt;</span>
+          500MB of available hard-disk space<span class="nt">&lt;br&gt;</span>
+          Screen Resolution - 1280x800<span class="nt">&lt;br&gt;</span>
+          Internet connection required for publishing
+        <span class="nt">&lt;/p&gt;</span>
+      <span class="nt">&lt;/section&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"product-highlight__cta"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn--border-black"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+
+</code></pre>  </div>
+
+</div>
+
+        </main>
+        <!-- build:js /assets/js/mainBuildkit.min.js -->
+<script src="/assets/js/vendor/requirejs/require.js"></script>
+<script src="/assets/js/mainBuildkit.js"></script>
+<!-- endbuild -->
+
+<!-- Typekit -->
+<script>
+  (function(d) {
+    var config = { kitId: 'tar4yyp', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

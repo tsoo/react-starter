@@ -1,0 +1,105 @@
+<h1 id="evemitter">EvEmitter</h1>
+
+<p><em>Lil' event emitter</em> — add a little pub/sub</p>
+
+<p>EvEmitter adds publish/subscribe pattern to a browser class. It's a smaller version of <a href="https://github.com/Olical/EventEmitter">Olical/EventEmitter</a>. That EventEmitter is full featured, widely used, and great. This EvEmitter has just the base event functionality to power the event API in libraries like <a href="http://isotope.metafizzy.co">Isotope</a>, <a href="http://flickity.metafizzy.co">Flickity</a>, <a href="http://masonry.desandro.com">Masonry</a>, and <a href="http://imagesloaded.desandro.com">imagesLoaded</a>.</p>
+
+<h2 id="api">API</h2>
+
+<p>``` js
+// Inherit prototype, IE8+
+MyClass.prototype = new EvEmitter();</p>
+
+<p>// Inherit prototype, IE9+
+MyClass.prototype = Object.create( EvEmitter.prototype );</p>
+
+<p>// Mixin prototype
+_.extend( MyClass.prototype, EvEmitter.prototype );</p>
+
+<p>// single instance
+var emitter = new EventEmitter();
+```</p>
+
+<h3 id="on">on</h3>
+
+<p>Add an event listener.</p>
+
+<p><code>js
+emitter.on( eventName, listener )
+</code></p>
+
+<ul>
+  <li><code>eventName</code> - <em>String</em> - name of the event</li>
+  <li><code>listener</code> - <em>Function</em></li>
+</ul>
+
+<h3 id="off">off</h3>
+
+<p>Remove an event listener.</p>
+
+<p><code>js
+emitter.off( eventName, listener )
+</code></p>
+
+<h3 id="once">once</h3>
+
+<p>Add an event listener to be triggered only once.</p>
+
+<p><code>js
+emitter.once( eventName, listener )
+</code></p>
+
+<h3 id="emitevent">emitEvent</h3>
+
+<p>Trigger an event.</p>
+
+<p><code>js
+emitter.emitEvent( eventName, args )
+</code></p>
+
+<ul>
+  <li><code>eventName</code> - <em>String</em> - name of the event</li>
+  <li><code>args</code> - <em>Array</em> - arguments passed to listeners</li>
+</ul>
+
+<h2 id="code-example">Code example</h2>
+
+<p>``` js
+// create event emitter
+var emitter = new EventEmitter();</p>
+
+<p>// listeners
+function hey( a, b, c ) {
+  console.log( 'Hey', a, b, c )
+}</p>
+
+<p>function ho( a, b, c ) {
+  console.log( 'Ho', a, b, c )
+}</p>
+
+<p>function letsGo( a, b, c ) {
+  console.log( 'Lets go', a, b, c )
+}</p>
+
+<p>// bind listeners
+emitter.on( 'rock', hey )
+emitter.once( 'rock', ho )
+// trigger letsGo once
+emitter.on( 'rock', letsGo )</p>
+
+<p>// emit event
+emitter.emitEvent( 'rock', [ 1, 2, 3 ] )
+// =&gt; 'Hey', 1, 2, 3
+// =&gt; 'Ho', 1, 2, 3
+// =&gt; 'Lets go', 1, 2, 3</p>
+
+<p>// unbind
+emitter.off( 'rock', ho )</p>
+
+<p>emitter.emitEvent( 'rock', [ 4, 5, 6 ] )
+// =&gt; 'Hey' 4, 5, 6
+```</p>
+
+<h2 id="license">License</h2>
+
+<p>EvEmitter is released under the <a href="http://desandro.mit-license.org/">MIT License</a>. Have at it.</p>

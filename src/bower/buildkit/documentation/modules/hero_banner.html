@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js no-flex"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Blurb Buildkit - Modules</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <!--[if ! lt IE 8]><!-->
+<link href="../../assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/templates.css" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+<![endif]-->
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="/assets/css/ie.css">
+<![endif]-->
+
+<!--[if IE 9]>
+<link rel="stylesheet" href="/assets/css/ie9.css">
+<![endif]-->
+
+<!-- build:js assets/js/vendor/modernizr/modernizr-custom.min.js -->
+<script src="/assets/js/vendor/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .c, .highlight .cd {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #75715e;
+  font-weight: bold;
+}
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kc {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sc {
+  color: #e6db74;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .sr {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .ss {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .nn {
+  color: #f8f8f2;
+}
+.highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .vg {
+  color: #f8f8f2;
+}
+.highlight .vi {
+  color: #f8f8f2;
+}
+.highlight .nv {
+  color: #f8f8f2;
+}
+.highlight .w {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
+}
+    </style>
+  </head>
+  <body class="documentation documentation_modules documentation_modules_hero_banner blurb-buildkit" data-controller="buildkit">
+    <nav class="bk__nav">
+      <div class="grid-construct">
+        <ul class="bk__nav-list">
+          <!-- <li class="bk__nav-list-item"><a href="/documentation/defaults.html">Defaults</a></li> --><!--
+       --><li class="bk__nav-list-item">
+            <a href="/documentation/modules">Modules</a>
+            <ul class="bk__module-list bk__nav__sub-list">
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/banner_modal.html">Banner Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/book-list.html">Book List</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/nav-browse.html">Browse (categories &amp; search)</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/buttons.html">Buttons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/center_column.html">Center Column</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/compare_table.html">Compare Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/colors.html">Colors</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/cta-banner.html">CTA Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/drawer.html">Drawer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-menu.html">Dropdown Menu</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-modal.html">Dropdown Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dynamic.html">Dynamic Content</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/email_signup.html">Email Signup</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/feature-bit.html">Feature Bit</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/grid.html">Grid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/half_bento_row.html">Half Bento Row</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/header_and_footer.html">Header and Footer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/hero_banner.html">Hero Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/horizontal_rule.html">Horizontal Rule</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/mobile_download_overlay.html">Mobile Download Overlay</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/one_column_form.html">One Column Form</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/polaroid.html">Polaroid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_highlight.html">Product Highlight</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_visualizer.html">Product Visualizer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/promo_banner.html">Promo Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/triplets.html">Triplets of Marketing</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/responsive_table.html">Responsive Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/search-box.html">Search Box</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/sprites.html">Sprites &amp; Icons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/steps.html">Steps</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tab_combo.html">Tab Combo</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tag.html">Tag</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/template_selector.html">Template Selector</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two_half_columns.html">Two Half Columns</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two-thirds-video.html">Two Thirds Video</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/typography.html">Typography</a>
+  </li>
+</ul>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="inner-wrapper  js-inner-wrapper">
+        <main class="main" role="main">
+          <div id="hero-banner" class="bk__section">
+  <div class="grid-construct">
+    <h3 class="bk__section__heading">Hero Banner</h3>
+    <p class="bk__section__description">
+      A horizontally <em>and</em> vertically responsive banner intended to
+      appear at the top of pages. We use separate images for mobile and
+      tablet/desktop* displays.
+    </p>
+    <p>
+      To set up images for mobile or tablet/desktop*, add <code>data-sm-src</code>
+      and <code>data-lg-src</code> attributes to <code>hero-banner__container</code>
+      and set these to image paths. <code>data-sm-src</code> correlates to mobile;
+      <code>data-lg-src</code> to tablet/desktop.
+    </p>
+    <p>
+      Keep in mind that asset dimension recommendations accommodate retina displays.
+      Javascript code on the client-side will size the images automatically depending
+      on the display size.
+    </p>
+    <p>
+      Images should follow the recommended dimensions or maintain the same
+      aspect ratio as the recommended dimensions.
+    </p>
+    <p><small>* We use the same image for both tablet and desktop</small></p>
+
+    <h4 class="bk__section__subheading">Default settings</h4>
+
+    <table class="compare-table__table">
+      <tbody>
+        <tr class="compare-table__tr compare-table__head-row">
+          <th class="compare-table__th">Device</th>
+          <th class="compare-table__th">Breakpoints</th>
+          <th class="compare-table__th">Suggested image dimensions</th>
+        </tr>
+        <tr class="compare-table__tr">
+          <td class="compare-table__td">Mobile</td>
+          <td class="compare-table__td">&lt; 750px (default)</td>
+          <td class="compare-table__td">800px &times; 1050px</td>
+        </tr>
+        <tr class="compare-table__tr">
+          <td class="compare-table__td">Tablet / Desktop*</td>
+          <td class="compare-table__td">750px &gt;</td>
+          <td class="compare-table__td">1960px &times; 680px</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <section class="module hero-banner" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"
+      data-lg-src="/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn hero-banner__btn--cta">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"</span>
+      <span class="na">data-lg-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn hero-banner__btn--cta"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Cinema Display</h4>
+    <p>
+      The tablet and desktop versions display the hero image at the full browser width.
+      Images can have any dimension, but consider following the suggested dimensions below.
+      Use the CSS class <code>hero-banner--cinema</code>.
+    </p>
+
+    <table class="compare-table__table">
+      <tbody>
+        <tr class="compare-table__tr compare-table__head-row">
+          <th class="compare-table__th">Device</th>
+          <th class="compare-table__th">Breakpoints</th>
+          <th class="compare-table__th">Suggested image dimensions</th>
+        </tr>
+        <tr class="compare-table__tr">
+          <td class="compare-table__td">Mobile</td>
+          <td class="compare-table__td">&lt; 750px (default)</td>
+          <td class="compare-table__td">800px &times; 1050px</td>
+        </tr>
+        <tr class="compare-table__tr">
+          <td class="compare-table__td">Tablet / Desktop*</td>
+          <td class="compare-table__td">750px &gt;</td>
+          <td class="compare-table__td">2136px &times; 680px</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><small>* We use the same image for both tablet and desktop</small></p>
+  </div>
+  <section class="module hero-banner hero-banner--cinema" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"
+      data-lg-src="/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn hero-banner__btn--cta">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--cinema"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"</span>
+      <span class="na">data-lg-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn hero-banner__btn--cta"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Secondary banner</h4>
+    <p>
+      A secondary banner that appears lower in the page. Maintains a
+      the same height for tablet and desktop and is <em>not</em> vertically
+      responsive. Use the CSS class <code>.hero-banner--secondary</code>.
+    </p>
+  </div>
+  <section class="module hero-banner hero-banner--cinema hero-banner--secondary" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"
+      data-lg-src="/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn btn btn--black-on-white">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--cinema hero-banner--secondary"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"</span>
+      <span class="na">data-lg-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn btn btn--black-on-white"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Banner with dark text</h4>
+    <p>
+      Uses dark gray (<code>#333</code>) text for banners that have lighter
+      backgrounds. Use the CSS class <code>.hero-banner--dark-text</code>.
+    </p>
+  </div>
+  <section class="module hero-banner hero-banner--dark-text" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="http://placehold.it/1700x410/eeeeee/eeeeee"
+      data-lg-src="http://placehold.it/1960x800/eeeeee/eeeeee">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn hero-banner__btn--cta">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--dark-text"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"http://placehold.it/1700x410/eeeeee/eeeeee"</span>
+      <span class="na">data-lg-src=</span><span class="s">"http://placehold.it/1960x800/eeeeee/eeeeee"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn hero-banner__btn--cta"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Banner with contrasted text</h4>
+    <p>
+      Adds a subtle text shadow to improve legibility of text. Uses a black
+      shadow for white text; white shadow for dark gray text.
+      Use the CSS class <code>.hero-banner--contrast-text</code>.
+    </p>
+  </div>
+  <section class="module hero-banner hero-banner--contrast-text" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"
+      data-lg-src="/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn hero-banner__btn--cta">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--contrast-text"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"</span>
+      <span class="na">data-lg-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn hero-banner__btn--cta"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Banner with darker text</h4>
+    <p>
+      Uses dark gray text (<code>#333</code>) and lighter button.
+      Use the CSS class <code>.hero-banner--dark-text</code>.
+    </p>
+  </div>
+  <section class="module hero-banner hero-banner--dark-text hero-banner--contrast-text" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="http://placehold.it/1700x410/444444/444444"
+      data-lg-src="http://placehold.it/1960x800/444444/444444">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="hero-banner__btn hero-banner__btn--cta">Get Started</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--dark-text hero-banner--contrast-text"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"http://placehold.it/1700x410/444444/444444"</span>
+      <span class="na">data-lg-src=</span><span class="s">"http://placehold.it/1960x800/444444/444444"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"hero-banner__btn hero-banner__btn--cta"</span><span class="nt">&gt;</span>Get Started<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+
+  <div class="grid-construct">
+    <h4 class="bk__section__subheading">Double Buttons on Cinema Display</h4>
+  </div>
+  <section class="module hero-banner hero-banner--cinema" data-controller="heroBanner">
+  <div class="grid-construct">
+    <div class="hero-banner__container"
+      data-sm-src="/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"
+      data-lg-src="/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg">
+      <div class="hero-banner__inner">
+        <div class="hero-banner__content">
+          <h1 class="hero-banner__heading">Make a Book.</h1>
+          <h2 class="hero-banner__subheading">Leave Your Mark.</h2>
+          <hr class="hero-banner__hr">
+          <p class="hero-banner__text">
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          </p>
+          <div class="hero-banner__btns">
+            <a href="#" class="btn btn--white-on-black--lg">Create Book</a>
+            <a href="#" class="btn btn--black-on-white--lg ">Edit Book</a>
+          </div>
+          <div class="hero-banner__credit">
+            <cite class="hero-banner__cite">“The Travel Book”</cite>
+            by John Snow
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+  <div class="grid-construct">
+    <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+    <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module hero-banner hero-banner--cinema"</span> <span class="na">data-controller=</span><span class="s">"heroBanner"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__container"</span>
+      <span class="na">data-sm-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_800x1050_v1b.jpg"</span>
+      <span class="na">data-lg-src=</span><span class="s">"/assets/img/hero-banner/googlegeddon_magazine_v2b.jpg"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__inner"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__content"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"hero-banner__heading"</span><span class="nt">&gt;</span>Make a Book.<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"hero-banner__subheading"</span><span class="nt">&gt;</span>Leave Your Mark.<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;hr</span> <span class="na">class=</span><span class="s">"hero-banner__hr"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"hero-banner__text"</span><span class="nt">&gt;</span>
+            Turn your ideas into professional print books, magazines, or
+            ebooks for iPad and Kindle.
+          <span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__btns"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn--white-on-black--lg"</span><span class="nt">&gt;</span>Create Book<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span> <span class="na">class=</span><span class="s">"btn btn--black-on-white--lg "</span><span class="nt">&gt;</span>Edit Book<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"hero-banner__credit"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;cite</span> <span class="na">class=</span><span class="s">"hero-banner__cite"</span><span class="nt">&gt;</span>“The Travel Book”<span class="nt">&lt;/cite&gt;</span>
+            by John Snow
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+  </div>
+</div>
+
+        </main>
+        <!-- build:js /assets/js/mainBuildkit.min.js -->
+<script src="/assets/js/vendor/requirejs/require.js"></script>
+<script src="/assets/js/mainBuildkit.js"></script>
+<!-- endbuild -->
+
+<!-- Typekit -->
+<script>
+  (function(d) {
+    var config = { kitId: 'tar4yyp', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

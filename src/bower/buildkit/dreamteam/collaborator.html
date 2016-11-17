@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js no-flex"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Blurb Dream Team</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+
+    <!--[if ! lt IE 8]><!-->
+<link href="../assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/templates.css" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+<![endif]-->
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="/assets/css/ie.css">
+<![endif]-->
+
+<!--[if IE 9]>
+<link rel="stylesheet" href="/assets/css/ie9.css">
+<![endif]-->
+
+<!-- build:js assets/js/vendor/modernizr/modernizr-custom.min.js -->
+<script src="/assets/js/vendor/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+
+    <link href="../assets/css/dreamteam-drupal.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body class="dreamteam dreamteam_collaborator blurb-main-site">
+    <div class="wrapper">
+      <div class="inner-wrapper  js-inner-wrapper">
+        <header class="header" role="banner">
+  <div class="header--utility">
+    <div class="grid-construct-x">
+      <ul class="utility__list js-utility-list">
+        <li class="utility__list-item  utility__list-item--show-lg"><a class="utility__cta" href="#">Sign Up</a></li>
+        <li class="utility__list-item  utility__list-item--show-lg"><a class="utility__cta" href="#">Sign In</a></li>
+        <li class="utility__list-item  utility__list-item--show-lg"><a class="utility__cta" href="#">Help</a></li>
+        <li class="utility__list-item  utility__list-item--show-lg">
+          <a class="utility__cta" href="#">
+            <i class="utility__cta--cart icon--basket"></i>
+            <i class="utility__cta--cart__qty">1</i>
+          </a>
+        </li>
+        <li class="utility__list-item utility__list-item--search">
+          <form action="/search/site_search" role="form" class="controls__search__form clearfix">
+            <input type="search" name="search" class="controls__search__field" aria-label="Search for…">
+            <i class="controls__search__field-icon icon icon--search--sm"></i>
+          </form>
+        </li>
+        <li class="utility__list-item  utility__list-item--show-md-sm"><a class="utility__cta" href="#">Home</a></li>
+        <li class="utility__list-item  utility__list-item--show-md-sm"><a class="utility__cta" href="#">Sign Up</a></li>
+        <li class="utility__list-item  utility__list-item--show-md-sm"><a class="utility__cta" href="#">Sign In</a></li>
+        <li class="utility__list-item  utility__list-item--show-md-sm">
+          <a class="utility__cta" href="#">
+            <i class="utility__cta--cart icon--basket"></i>
+            <i class="utility__cta--cart__qty">1</i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <section class="header--main">
+    <div class="grid-construct-x">
+      <a href="/" title="Blurb" class="js-logo">
+        <i class="icon logo--small logo-main--sm"></i>
+        <i class="icon logo--large logo-main"></i>
+      </a>
+      <div class="new-controls controls--main js-controls">
+        <nav class="controls__nav" data-controller="controlsNav">
+          <ul class="controls__nav__list">
+            <li class="controls__nav__list-item" data-tab="format_and_pricing">
+              <div class="controls__nav__cta  js-parent-nav-link">
+                <i class="icon controls__nav__expand-icon"></i>
+                <a class="controls__nav__cta__link" href="#">Formats</a>
+              </div>
+              <ul class="controls__subnav--lvl1  js-subnav" data-trigger="format_and_pricing">
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Formats Overview</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Photo Books</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Trade Books</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Magazines</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">eBooks</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Pricing</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Volume Printing</a>
+                </li>
+              </ul>
+            </li>
+            <li class="controls__nav__list-item" data-tab="create">
+              <div class="controls__nav__cta  js-parent-nav-link">
+                <i class="icon controls__nav__expand-icon"></i>
+                <a class="controls__nav__cta__link" href="#">Create</a>
+              </div>
+              <ul class="controls__subnav--lvl1  js-subnav" data-trigger="create">
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="/bookmaking-tools">Creation & Layout Tools</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="/bookmaking-tools">Templates</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="/pdf-to-book">Upload PDF</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Hire an Expert</a>
+                </li>
+              </ul>
+            </li>
+            <li class="controls__nav__list-item" data-tab="sell_and_distribute">
+              <div class="controls__nav__cta  js-parent-nav-link">
+                <i class="icon controls__nav__expand-icon"></i>
+                <a class="controls__nav__cta__link" href="#">Sell &amp; Distribute</a>
+              </div>
+              <ul class="controls__subnav--lvl1  js-subnav" data-trigger="sell_and_distribute">
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Sell & Distribute Overview</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Sell Through Blurb</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Amazon & More</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Apple iBooks Store</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Pre-sell with Kickstarter</a>
+                </li>
+              </ul>
+            </li>
+            <li class="controls__nav__list-item" data-tab="bookstore">
+              <div class="controls__nav__cta  js-parent-nav-link">
+                <i class="icon controls__nav__expand-icon"></i>
+                <a class="controls__nav__cta__link" href="#">Bookstore</a>
+              </div>
+              <ul class="controls__subnav--lvl1  js-subnav" data-trigger="bookstore">
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Bookstore Homepage</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">New & Notable</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Editors Pick</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">Best Sellers</a>
+                </li>
+                <li class="controls__subnav--lvl1__item">
+                  <a class="controls__subnav--lvl1__link" href="#">All Categories</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+    <ul class="controls__current-subnav controls__current-subnav--open" data-trigger="format_and_pricing">
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/templates">Photo Books</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Trade Books</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/bookmaking-tools'>Magazines</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/templates">Ebooks</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Pricing</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Volume Printing</a>
+      </li>
+    </ul>
+    <ul class="controls__current-subnav" data-trigger="create">
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/bookmaking-tools'>Creation &amp; Layout Tools</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/templates">Templates</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/pdf-to-book">Upload PDF</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Hire an Expert</a>
+      </li>
+    </ul>
+    <ul class="controls__current-subnav" data-trigger="sell_and_distribute">
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/templates">Sell through Blurb</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Amazon & More</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/bookmaking-tools'>Apple iBooks Store</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/kickstarter'>Pre-sell with Kickstarter</a>
+      </li>
+    </ul>
+    <ul class="controls__current-subnav" data-trigger="bookstore">
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/bookmaking-tools'>New &amp; Notable</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/templates">Editors Pick</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href="/dreamteam/collaborators">Best Sellers</a>
+      </li>
+      <li class="controls__current-subnav__item">
+        <a class="controls__current-subnav__link" href='/bookmaking-tools'>All Categories</a>
+      </li>
+    </ul>
+    <div class="grid-construct-x header-main__footer">
+        <section class="footer__legal">
+    <div class="grid-construct">
+      <div class="footer__icons--social typ--align-center--mobile">
+        <a href="https://www.facebook.com/BlurbBooks/"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#facebook" /></svg></a>
+        <a href="https://twitter.com/BlurbBooks"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#twitter" /></svg></a>
+        <a href="https://www.instagram.com/blurbbooks/"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#instagram" /></svg></a>
+        <a href="https://www.linkedin.com/company/blurb"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#linkedin" /></svg></a>
+      </div>
+      <ul class="footer__legal__list">
+        <li class="footer__legal__list-item  footer__legal__list-item--copyright">&copy; 1999-2016 Blurb</li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Company</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Careers</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Engineering</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Pricing</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Privacy &amp; Legal</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Affiliate Program</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Support</a></li>
+      </ul>
+      <div class="footer__lang-select" data-controller="languageSelect">
+        <button type="button" role="button" class="footer__lang-select__btn js-lang-select-btn">
+          <i class="icon flag--united-states--sm  footer__lang-select__selected-icon"></i>
+          United States
+        </button>
+
+        <div class="footer__lang-select__select-wrap js-lang-select-wrap">
+          <ul class="footer__lang-select__column">
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--united-states"></i>United States</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--australia"></i>Australia</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--brazil"></i>Brazil</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--italy"></i>Italy</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--netherlands"></i>Netherlands</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--united-kingdom"></i>United Kingdom</a>
+            </li>
+          </ul>
+          <ul class="footer__lang-select__column">
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--france"></i>France</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--germany"></i>Germany</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--spain"></i>Spain</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--canada"></i>Canada (English)</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--canada"></i>Canada (French)</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--globe"></i>Other Countries</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    </div>
+  </section>
+  <a href="#" class="header--mobile-nav-toggle js-mobile-nav-toggle"><i class="icon icon--mobile-nav"></i></a>
+
+</header>
+
+        <main class="main" role="main">
+          <div class="clearfix">
+  <div class="module">
+    <div class="category_nav__wrapper">
+      <div class="grid-construct">
+        <div class="category_nav--prev nav-disabled"><span class="icon chevron-left-white"></span>Prev</div>
+        <div class="category_nav--title"><a href="#">Explore Interior/Layout Design</a></div>
+        <div class="category_nav--next"><a href="#">Next<span class="icon chevron-right-white"></span></a></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="contributors__wrapper">
+      <div class="grid-construct">
+        <div class="contributors__left">
+          <div class="contributors--photo"><div class="field field-name-field-contributor-photo field-type-image field-label-hidden"><div class="field-items"><div class="field-item even"><img src="http://placehold.it/134x134" alt=""></div></div></div></div>
+        </div>
+        <div class="contributors__right">
+          <div class="contributors--name">Adam Robinson</div>
+          <div class="contributors--location"><i class="icon contributor-place"></i><div class="field field-name-field-contributor-location field-type-text field-label-hidden"><div class="field-items"><div class="field-item even">Atlanta, GA, USA</div></div></div></div>
+          <div class="contributors--website"><i class="icon icon--link-ext v-text-white"></i><div class="field field-name-field-contributor-website field-type-link-field field-label-hidden"><div class="field-items"><div class="field-item even"><a href="http://www.goodbookdevelopers.com">http://www.goodbookdevelopers.com</a></div></div></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="module">
+    <div class="page__body">
+      <div class="grid-construct">
+        <div class="page__wrapper-narrow">
+          <a href="/contributor/contact?nid=6086&amp;modal=1" scrolling="no" rel="lightframe[|height:572px;width:480px;]" class="btn form-pop-up btn--white-on-black lightbox-processed">CONTACT</a>
+          <div class="field field-name-body field-type-text-with-summary field-label-hidden"><div class="field-items"><div class="field-item even" property="content:encoded"> I started publishing books with my small press, Publishing Genius, in 2007. Now I've translated the experience I've gained working on 40 books into helping other small presses and self-publishing authors get their work into the world. I will manage everything from editing books, to the design and print and eBook process, to building simple websites and simple publicity campaigns. These books have been reviewed in the NY Times, Kirkus, Publishers Weekly, and more. Authors get their books sold in independent bookstores as well as Barnes &amp; Noble and (of course) Amazon. </div></div></div>            </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+        </main>
+        <footer class="footer js-footer" role="contentinfo">
+  <section class="grid-construct">
+    <div class="footer__mega-nav">
+      <ul class="footer__mega-nav__list">
+        <li class="footer__mega-nav__list-item">
+          <h6><a href="#">Self Publish</a></h6>
+          <ul class="footer__mega-nav__sub-list">
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Create</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Publishing Options</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Sell, Distribute, &amp; Promote</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">For Professionals</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__mega-nav__list-item">
+          <h6><a href="#">Books &amp; Materials</a></h6>
+          <ul class="footer__mega-nav__sub-list">
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Photo Books</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Trade &amp; Pocket Books</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Magazines</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">eBooks</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">PDFs</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__mega-nav__list-item">
+          <h6><a href="#">Make a Book</a></h6>
+          <ul class="footer__mega-nav__sub-list">
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Get Started</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Tools</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Templates</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">How-To-Guide</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__mega-nav__list-item">
+          <h6><a href="#">Community</a></h6>
+          <ul class="footer__mega-nav__sub-list">
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Main Landing Page</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Events &amp; Webinars</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Blog Content</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Other Item</a>
+            </li>
+          </ul>
+        </li>
+        <li class="footer__mega-nav__list-item">
+          <h6><a href="#">Bookstore</a></h6>
+          <ul class="footer__mega-nav__sub-list">
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">New &amp; Notible</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Best Sellers</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">Editor Picks</a>
+            </li>
+            <li class="footer__mega-nav__sub-list-item">
+              <a href="#">All Categories</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </section>
+    <section class="footer__legal">
+    <div class="grid-construct">
+      <div class="footer__icons--social typ--align-center--mobile">
+        <a href="https://www.facebook.com/BlurbBooks/"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#facebook" /></svg></a>
+        <a href="https://twitter.com/BlurbBooks"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#twitter" /></svg></a>
+        <a href="https://www.instagram.com/blurbbooks/"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#instagram" /></svg></a>
+        <a href="https://www.linkedin.com/company/blurb"><svg class="icon icon--30x30" data-src="/assets/img/icons.svg"><use xlink:href="#linkedin" /></svg></a>
+      </div>
+      <ul class="footer__legal__list">
+        <li class="footer__legal__list-item  footer__legal__list-item--copyright">&copy; 1999-2016 Blurb</li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Company</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Careers</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Engineering</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Pricing</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Privacy &amp; Legal</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Affiliate Program</a></li><!--
+        --><li class="footer__legal__list-item"><a class="footer__legal__link" href="#">Support</a></li>
+      </ul>
+      <div class="footer__lang-select" data-controller="languageSelect">
+        <button type="button" role="button" class="footer__lang-select__btn js-lang-select-btn">
+          <i class="icon flag--united-states--sm  footer__lang-select__selected-icon"></i>
+          United States
+        </button>
+
+        <div class="footer__lang-select__select-wrap js-lang-select-wrap">
+          <ul class="footer__lang-select__column">
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--united-states"></i>United States</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--australia"></i>Australia</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--brazil"></i>Brazil</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--italy"></i>Italy</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--netherlands"></i>Netherlands</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--united-kingdom"></i>United Kingdom</a>
+            </li>
+          </ul>
+          <ul class="footer__lang-select__column">
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--france"></i>France</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--germany"></i>Germany</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--spain"></i>Spain</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--canada"></i>Canada (English)</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--canada"></i>Canada (French)</a>
+            </li>
+            <li class="footer__lang-select__list-item">
+              <a class="footer__lang-select__link" href="#"><i class="icon flag--globe"></i>Other Countries</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</footer>
+
+        <!-- build:js /assets/js/main.min.js -->
+<script src="/assets/js/vendor/requirejs/require.js"></script>
+<script src="/assets/js/main.js"></script>
+<!-- endbuild -->
+
+<!-- Typekit -->
+<script>
+  (function(d) {
+    var config = { kitId: 'tar4yyp', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+{
+  "name": "buildkit",
+  "_cacheHeaders": {
+    "ETag": "\"d5c993fa1d8f98b56d08feb969707d63\"",
+    "Last-Modified": "Tue, 15 Nov 2016 20:00:17 GMT",
+    "Content-Length": "8277891",
+    "Content-Type": "application/octet-stream"
+  },
+  "_release": "e-tag:d5c993fa1",
+  "_source": "https://s3-us-west-2.amazonaws.com/blurb-books-build-artifacts/jobs/Buildkit-Artifact/1186/buildkit-dist.tgz",
+  "_target": "*",
+  "_originalSource": "https://s3-us-west-2.amazonaws.com/blurb-books-build-artifacts/jobs/Buildkit-Artifact/1186/buildkit-dist.tgz"
+}

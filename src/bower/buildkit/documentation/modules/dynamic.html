@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 ie6"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 ie7"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 ie8"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js no-flex"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, width=device-width">
+    <!-- Use title if it's in the page YAML frontmatter -->
+    <title>Blurb Buildkit - Modules</title>
+    <link rel="shortcut icon" type="image/ico" href="/favicon.ico">
+    <!--[if ! lt IE 8]><!-->
+<link href="../../assets/css/main.css" rel="stylesheet" type="text/css" />
+<link href="../../assets/css/templates.css" rel="stylesheet" type="text/css" />
+<!--<![endif]-->
+
+<!--[if lt IE 8]>
+<link rel="stylesheet" href="http://universal-ie6-css.googlecode.com/files/ie6.1.1.css" media="screen, projection">
+<![endif]-->
+
+<!--[if IE 8]>
+<link rel="stylesheet" href="/assets/css/ie.css">
+<![endif]-->
+
+<!--[if IE 9]>
+<link rel="stylesheet" href="/assets/css/ie9.css">
+<![endif]-->
+
+<!-- build:js assets/js/vendor/modernizr/modernizr-custom.min.js -->
+<script src="/assets/js/vendor/modernizr/modernizr.js"></script>
+<!-- endbuild -->
+
+    <style>
+    .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .c, .highlight .cd {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cm {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .c1 {
+  color: #75715e;
+  font-style: italic;
+}
+.highlight .cp {
+  color: #75715e;
+  font-weight: bold;
+}
+.highlight .cs {
+  color: #75715e;
+  font-weight: bold;
+  font-style: italic;
+}
+.highlight .err {
+  color: #960050;
+  background-color: #1e0010;
+}
+.highlight .gi {
+  color: #ffffff;
+  background-color: #324932;
+}
+.highlight .gd {
+  color: #ffffff;
+  background-color: #493131;
+}
+.highlight .ge {
+  color: #000000;
+  font-style: italic;
+}
+.highlight .gr {
+  color: #aa0000;
+}
+.highlight .gt {
+  color: #aa0000;
+}
+.highlight .gh {
+  color: #999999;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+  font-weight: bold;
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .k, .highlight .kv {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kc {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kd {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kp {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kr {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kt {
+  color: #66d9ef;
+  font-weight: bold;
+}
+.highlight .kn {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .ow {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .o {
+  color: #f92672;
+  font-weight: bold;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sc {
+  color: #e6db74;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .sr {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .ss {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nd {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .ne {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .nf {
+  color: #a6e22e;
+  font-weight: bold;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .bp {
+  color: #f8f8f2;
+}
+.highlight .nb {
+  color: #f8f8f2;
+}
+.highlight .ni {
+  color: #f8f8f2;
+}
+.highlight .nn {
+  color: #f8f8f2;
+}
+.highlight .vc {
+  color: #f8f8f2;
+}
+.highlight .vg {
+  color: #f8f8f2;
+}
+.highlight .vi {
+  color: #f8f8f2;
+}
+.highlight .nv {
+  color: #f8f8f2;
+}
+.highlight .w {
+  color: #f8f8f2;
+}
+.highlight .nl {
+  color: #f8f8f2;
+  font-weight: bold;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight {
+  color: #f8f8f2;
+  background-color: #49483e;
+}
+    </style>
+  </head>
+  <body class="documentation documentation_modules documentation_modules_dynamic blurb-buildkit" data-controller="buildkit">
+    <nav class="bk__nav">
+      <div class="grid-construct">
+        <ul class="bk__nav-list">
+          <!-- <li class="bk__nav-list-item"><a href="/documentation/defaults.html">Defaults</a></li> --><!--
+       --><li class="bk__nav-list-item">
+            <a href="/documentation/modules">Modules</a>
+            <ul class="bk__module-list bk__nav__sub-list">
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/banner_modal.html">Banner Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/book-list.html">Book List</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/nav-browse.html">Browse (categories &amp; search)</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/buttons.html">Buttons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/center_column.html">Center Column</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/compare_table.html">Compare Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/colors.html">Colors</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/cta-banner.html">CTA Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/drawer.html">Drawer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-menu.html">Dropdown Menu</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dropdown-modal.html">Dropdown Modal</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/dynamic.html">Dynamic Content</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/email_signup.html">Email Signup</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/feature-bit.html">Feature Bit</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/grid.html">Grid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/half_bento_row.html">Half Bento Row</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/header_and_footer.html">Header and Footer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/hero_banner.html">Hero Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/horizontal_rule.html">Horizontal Rule</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/mobile_download_overlay.html">Mobile Download Overlay</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/one_column_form.html">One Column Form</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/polaroid.html">Polaroid</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_highlight.html">Product Highlight</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/product_visualizer.html">Product Visualizer</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/promo_banner.html">Promo Banner</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/triplets.html">Triplets of Marketing</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/responsive_table.html">Responsive Table</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/search-box.html">Search Box</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/sprites.html">Sprites &amp; Icons</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/steps.html">Steps</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tab_combo.html">Tab Combo</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/tag.html">Tag</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/template_selector.html">Template Selector</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two_half_columns.html">Two Half Columns</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/two-thirds-video.html">Two Thirds Video</a>
+  </li>
+  <li class="bk__module-list-item">
+    <a href="/documentation/modules/typography.html">Typography</a>
+  </li>
+</ul>
+
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <div class="inner-wrapper  js-inner-wrapper">
+        <main class="main" role="main">
+          <!-- Variant 1: Short 300px height module - image left - apple badge - link -->
+<div id="dynamic" class="bk__section">
+  <div class="grid-construct">
+    <h3 class="bk__section__heading">Dynamic Content</h3>
+    <p class="bk__section__description">
+      The Dynamic Content module is similar to the Hero Banner but allows for
+      an image to be left or right aligned of it's related content. On mobile,
+      images are positioned to the bottom of the container.
+    </p>
+  </div>
+</div>
+<section class="module module--first dynamic dynamic--secondary v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop js-dynamic-img-desktop" alt="iPhone" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps">Beautiful books on the go</h1>
+          <p class="dynamic__text v-text-white">Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos</p>
+          <div class="dynamic__row dynamic__row--last hidden-sm">
+            <div class="dynamic__div">
+              <a href="#"><svg class="icon icon--apple-badge"><use xlink:href="#apple_badge" /></svg></a>
+            </div>
+            <div class="dynamic__div">
+              <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+            </div>
+          </div>
+          <div class="dynamic__div hidden-md hidden-lg">
+            <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+          </div>
+          <div class="dynamic__div hidden-md hidden-lg">
+            <a href="#"><svg class="icon icon--apple-badge"><use xlink:href="#apple_badge" /></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop js-dynamic-img-desktop"</span> <span class="na">alt=</span><span class="s">"iPhone"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps"</span><span class="nt">&gt;</span>Beautiful books on the go<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"dynamic__text v-text-white"</span><span class="nt">&gt;</span>Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__row dynamic__row--last hidden-sm"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;svg</span> <span class="na">class=</span><span class="s">"icon icon--apple-badge"</span><span class="nt">&gt;&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#apple_badge"</span> <span class="nt">/&gt;&lt;/svg&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div hidden-md hidden-lg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div hidden-md hidden-lg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;svg</span> <span class="na">class=</span><span class="s">"icon icon--apple-badge"</span><span class="nt">&gt;&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#apple_badge"</span> <span class="nt">/&gt;&lt;/svg&gt;&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<!-- Variant 2: Short 300px height module - image right - apple badge - link -->
+<div class="grid-construct">
+  <h4 class="bk__section__subheading">Right aligned image</h4>
+  <p class="bk__section__description">
+    Add the <code>dynamic--img-right</code> modifier CSS class.
+  </p>
+</div>
+<section class="module module--first dynamic dynamic--secondary dynamic--img-right v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop js-dynamic-img-desktop" alt="iPhone" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps">Beautiful books on the go</h1>
+          <ul class="dynamic__text dynamic__text--list v-text-white">
+            <li class="dynamic__text--list__item"><strong>5&times;5 or 7&times;7</strong>—purpose-built lore ipsum designing amazing books, sium malines, and ebooks</li>
+            <li class="dynamic__text--list__item"><strong>Lorem ipsum</strong>—an online ebook creation tool dolores indum</li>
+            <li class="dynamic__text--list__item"><strong>Dolores</strong>—in-app book creation</li>
+          </ul>
+          <div class="dynamic__row dynamic__row--last hidden-sm">
+            <div class="dynamic__div">
+              <a href="#"><svg class="icon icon--apple-badge"><use xlink:href="#apple_badge" /></svg></a>
+            </div>
+            <div class="dynamic__div">
+              <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+            </div>
+          </div>
+          <div class="dynamic__div hidden-md hidden-lg">
+            <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+          </div>
+          <div class="dynamic__div hidden-md hidden-lg">
+            <a href="#"><svg class="icon icon--apple-badge"><use xlink:href="#apple_badge" /></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary dynamic--img-right v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop js-dynamic-img-desktop"</span> <span class="na">alt=</span><span class="s">"iPhone"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps"</span><span class="nt">&gt;</span>Beautiful books on the go<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"dynamic__text dynamic__text--list v-text-white"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dynamic__text--list__item"</span><span class="nt">&gt;&lt;strong&gt;</span>5<span class="ni">&amp;times;</span>5 or 7<span class="ni">&amp;times;</span>7<span class="nt">&lt;/strong&gt;</span>—purpose-built lore ipsum designing amazing books, sium malines, and ebooks<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dynamic__text--list__item"</span><span class="nt">&gt;&lt;strong&gt;</span>Lorem ipsum<span class="nt">&lt;/strong&gt;</span>—an online ebook creation tool dolores indum<span class="nt">&lt;/li&gt;</span>
+            <span class="nt">&lt;li</span> <span class="na">class=</span><span class="s">"dynamic__text--list__item"</span><span class="nt">&gt;&lt;strong&gt;</span>Dolores<span class="nt">&lt;/strong&gt;</span>—in-app book creation<span class="nt">&lt;/li&gt;</span>
+          <span class="nt">&lt;/ul&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__row dynamic__row--last hidden-sm"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;svg</span> <span class="na">class=</span><span class="s">"icon icon--apple-badge"</span><span class="nt">&gt;&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#apple_badge"</span> <span class="nt">/&gt;&lt;/svg&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div hidden-md hidden-lg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div hidden-md hidden-lg"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;svg</span> <span class="na">class=</span><span class="s">"icon icon--apple-badge"</span><span class="nt">&gt;&lt;use</span> <span class="na">xlink:href=</span><span class="s">"#apple_badge"</span> <span class="nt">/&gt;&lt;/svg&gt;&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<!-- Variant 3: Short 300px height module - image right - small CTA - link -->
+<div class="grid-construct">
+  <h4 class="bk__section__subheading">Small CTA</h4>
+</div>
+<section class="module module--first dynamic dynamic--secondary v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop js-dynamic-img-desktop" alt="iPhone" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps hidden-md hidden-lg">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps">Make your book on the move</h1>
+          <p class="dynamic__text v-text-white">Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos</p>
+          <div class="dynamic__row dynamic__row--last">
+            <div class="dynamic__div">
+              <a class="btn btn--graycharcoal-to-white" href="#">Update your photo</a>
+            </div>
+            <div class="dynamic__div">
+              <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop js-dynamic-img-desktop"</span> <span class="na">alt=</span><span class="s">"iPhone"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps hidden-md hidden-lg"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps"</span><span class="nt">&gt;</span>Make your book on the move<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"dynamic__text v-text-white"</span><span class="nt">&gt;</span>Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__row dynamic__row--last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn--graycharcoal-to-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Update your photo<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<!-- Variant 4: Tall 580px height module - image right - large CTA - link -->
+<div class="grid-construct">
+  <h4 class="bk__section__subheading">Large CTA</h4>
+</div>
+<section class="module module--first dynamic dynamic--secondary v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop js-dynamic-img-desktop" alt="iPhone" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps hidden-md hidden-lg">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps">Make your book on the move</h1>
+          <p class="dynamic__text v-text-white">Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos</p>
+          <div class="dynamic__div">
+            <a class="dynamic__cta btn btn--graycharcoal-to-white--lg" href="#">Update your photo</a>
+          </div>
+          <div class="dynamic__div">
+            <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop js-dynamic-img-desktop"</span> <span class="na">alt=</span><span class="s">"iPhone"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps hidden-md hidden-lg"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps"</span><span class="nt">&gt;</span>Make your book on the move<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"dynamic__text v-text-white"</span><span class="nt">&gt;</span>Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__cta btn btn--graycharcoal-to-white--lg"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Update your photo<span class="nt">&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<!-- Variant 5: Center align content for mobile only -->
+<div class="grid-construct">
+  <h4 class="bk__section__subheading">Center aligned content for mobile only</h4>
+</div>
+<section class="module module--first dynamic dynamic--secondary v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop js-dynamic-img-desktop" alt="iPhone" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps typ--align-center--mobile hidden-md hidden-lg">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps typ--align-center--mobile">Make your book on the move</h1>
+          <p class="dynamic__text v-text-white typ--align-center--mobile">Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos</p>
+          <div class="dynamic__row dynamic__row--last">
+            <div class="dynamic__div">
+              <a class="btn btn--graycharcoal-to-white" href="#">Update your photo</a>
+            </div>
+            <div class="dynamic__div">
+              <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop js-dynamic-img-desktop"</span> <span class="na">alt=</span><span class="s">"iPhone"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps typ--align-center--mobile hidden-md hidden-lg"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps typ--align-center--mobile"</span><span class="nt">&gt;</span>Make your book on the move<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"dynamic__text v-text-white typ--align-center--mobile"</span><span class="nt">&gt;</span>Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__row dynamic__row--last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn--graycharcoal-to-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Update your photo<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+<!-- Variant 5: Center align content for mobile only -->
+<div class="grid-construct">
+  <h4 class="bk__section__subheading">Same image for both mobile and desktop</h4>
+</div>
+<section class="module module--first dynamic dynamic--secondary v-bg-ocean" data-controller="dynamic">
+  <div class="grid-construct-x">
+    <div class="dynamic__box clearfix js-dynamic-box">
+      <!-- Images (separate markup for mobile & desktop -->
+      <img class="dynamic__img dynamic__img--mobile js-dynamic-img-mobile" alt="iPhone displaying book with smiling baby"
+        src="/assets/img/dynamic/mobile.png">
+      <div class="dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop">
+        <img class="dynamic__img dynamic__img--desktop dynamic__img--desktop--bottom" alt="iPhone displaying book with smiling baby" src="/assets/img/dynamic/mobile.png">
+      </div>
+
+      <!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) -->
+      <div class="dynamic__content js-dynamic-content">
+        <div class="dynamic__content__wrapper">
+          <h2 class="dynamic__subhead v-text-white typ__all-caps typ--align-center--mobile hidden-md hidden-lg">New! Exclusive app lorem ipsum</h2>
+          <h1 class="dynamic__head v-text-white typ__all-caps typ--align-center--mobile">Make your book on the move</h1>
+          <p class="dynamic__text v-text-white typ--align-center--mobile">Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos</p>
+          <div class="dynamic__row dynamic__row--last">
+            <div class="dynamic__div">
+              <a class="btn btn--graycharcoal-to-white" href="#">Update your photo</a>
+            </div>
+            <div class="dynamic__div">
+              <a class="dynamic__link typ__all-caps typ__align-center v-text-white" href="#"><span class="markup--anchor--distant">Learn more</span></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="grid-construct">
+  <a href="#" class="bk__section__source-toggle js-source-toggle">Show Source</a>
+  <pre class="highlight html"><code><span class="nt">&lt;section</span> <span class="na">class=</span><span class="s">"module module--first dynamic dynamic--secondary v-bg-ocean"</span> <span class="na">data-controller=</span><span class="s">"dynamic"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"grid-construct-x"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__box clearfix js-dynamic-box"</span><span class="nt">&gt;</span>
+      <span class="c">&lt;!-- Images (separate markup for mobile &amp; desktop --&gt;</span>
+      <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--mobile js-dynamic-img-mobile"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span>
+        <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content dynamic__content--img hidden-sm js-dynamic-content-desktop"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"dynamic__img dynamic__img--desktop dynamic__img--desktop--bottom"</span> <span class="na">alt=</span><span class="s">"iPhone displaying book with smiling baby"</span> <span class="na">src=</span><span class="s">"/assets/img/dynamic/mobile.png"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+      <span class="c">&lt;!-- Content (use hidden-sm, hidden-md, hidden-lg as needed) --&gt;</span>
+      <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content js-dynamic-content"</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__content__wrapper"</span><span class="nt">&gt;</span>
+          <span class="nt">&lt;h2</span> <span class="na">class=</span><span class="s">"dynamic__subhead v-text-white typ__all-caps typ--align-center--mobile hidden-md hidden-lg"</span><span class="nt">&gt;</span>New! Exclusive app lorem ipsum<span class="nt">&lt;/h2&gt;</span>
+          <span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"dynamic__head v-text-white typ__all-caps typ--align-center--mobile"</span><span class="nt">&gt;</span>Make your book on the move<span class="nt">&lt;/h1&gt;</span>
+          <span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"dynamic__text v-text-white typ--align-center--mobile"</span><span class="nt">&gt;</span>Blurb for iPhone or iPad is the easiest way to make and share your book of mobile photos<span class="nt">&lt;/p&gt;</span>
+          <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__row dynamic__row--last"</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"btn btn--graycharcoal-to-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;</span>Update your photo<span class="nt">&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+            <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"dynamic__div"</span><span class="nt">&gt;</span>
+              <span class="nt">&lt;a</span> <span class="na">class=</span><span class="s">"dynamic__link typ__all-caps typ__align-center v-text-white"</span> <span class="na">href=</span><span class="s">"#"</span><span class="nt">&gt;&lt;span</span> <span class="na">class=</span><span class="s">"markup--anchor--distant"</span><span class="nt">&gt;</span>Learn more<span class="nt">&lt;/span&gt;&lt;/a&gt;</span>
+            <span class="nt">&lt;/div&gt;</span>
+          <span class="nt">&lt;/div&gt;</span>
+        <span class="nt">&lt;/div&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+  <span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;/section&gt;</span>
+</code></pre>
+</div>
+
+        </main>
+        <!-- build:js /assets/js/mainBuildkit.min.js -->
+<script src="/assets/js/vendor/requirejs/require.js"></script>
+<script src="/assets/js/mainBuildkit.js"></script>
+<!-- endbuild -->
+
+<!-- Typekit -->
+<script>
+  (function(d) {
+    var config = { kitId: 'tar4yyp', scriptTimeout: 3000, async: true },
+      h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  })(document);
+</script>
+
+      </div>
+    </div>
+  </body>
+</html>
