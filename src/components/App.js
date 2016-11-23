@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import '../node_modules/blurb-buildkit/assets/css/main-drupal.css';
-import Modernizr from '../node_modules/blurb-buildkit/assets/js/vendor/modernizr/modernizr-custom.min.js';
-import Buildkit from '../node_modules/blurb-buildkit/assets/js/main-eng.js';
+import logo from '../img/logo.svg';
+import '../css/App.css';
+import '../../node_modules/blurb-buildkit/assets/css/main-drupal.css';
+import Modernizr from '../../node_modules/blurb-buildkit/assets/js/vendor/modernizr/modernizr-custom.min.js';
+import Buildkit from '../../node_modules/blurb-buildkit/assets/js/main-eng.js';
 
 class App extends Component {
   render() {
