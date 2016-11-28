@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../img/logo.svg';
 import '../css/App.css';
+import HeroBanner from './HeroBanner';
 
 class App extends Component {
   render() {
@@ -13,6 +14,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/compontents/App.js</code> and save to reload.
         </p>
+        <HeroBanner />
       </div>
     );
   }
