@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Buildkit from '../utils/buildkit';
+import Buildkit from '../utils/Buildkit';
 import desktopHero from '../img/home-desktop.jpg';
 import mobileHero from '../img/home-mobile.jpg';
 import Translate from 'counterpart';
