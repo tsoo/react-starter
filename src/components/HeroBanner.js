@@ -27,7 +27,7 @@ class HeroBanner extends Component {
             data-lg-src={desktopHero}>
             <div className="hero-banner__inner">
               <div className="hero-banner__content">
-                <h1 className="hero-banner__heading">{Translate('pricing.heroBanner.paperBooks.heading')}</h1>
+                <h1 className="hero-banner__heading">{Translate('heroBanner.paperBooks.heading')}</h1>
                 <p className="hero-banner__text">Hero Banner Content</p>
                 <div className="hero-banner__btns">
                   <a href="#" className="hero-banner__btn--cta hero-banner__btn">Call to action</a>
