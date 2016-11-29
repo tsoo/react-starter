@@ -3,6 +3,7 @@ import Buildkit from '../utils/Buildkit';
 import desktopHero from '../img/home-desktop.jpg';
 import mobileHero from '../img/home-mobile.jpg';
 import Translate from 'counterpart';
+import FeatureBit from './FeatureBit';
 
 class HeroBanner extends Component {
 
@@ -18,6 +19,9 @@ class HeroBanner extends Component {
     return (
       <section className="module hero-banner hero-banner--cinema hero-banner--secondary" data-controller="heroBanner">
         <div className="grid-construct">
+          <FeatureBit name='featureBitName'>
+            <div>data</div>
+          </FeatureBit>
           <div className="hero-banner__container"
             data-sm-src={mobileHero}
             data-lg-src={desktopHero}>
