@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { render } from 'react-dom';
 import App from './components/App';
 import './css/index.css';
 import '../node_modules/blurb-buildkit/assets/css/main-drupal.css';
@@ -8,7 +8,18 @@ import Modernizr from '../node_modules/blurb-buildkit/assets/js/vendor/modernizr
 // eslint-disable-next-line
 import Buildkit from '../node_modules/blurb-buildkit/assets/js/main-eng.js';
 
-ReactDOM.render(
-  <App />,
-  document.getElementById('root')
-);
+// import react router dependencies
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import store, { history } from './store';
+
+
+const router = (
+  <Provider store={store}>
+    <Router history={history}>
+      <Route path="/" component={App}></Route>
+    </Router>
+  </Provider>
+)
+
+render(router, document.getElementById('root'));
