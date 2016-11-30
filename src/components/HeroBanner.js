@@ -20,7 +20,7 @@ class HeroBanner extends Component {
       <section className="module hero-banner hero-banner--cinema hero-banner--secondary" data-controller="heroBanner">
         <div className="grid-construct">
           <FeatureBit name='featureBitName'>
-            <div>data</div>
+            <div></div>
           </FeatureBit>
           <div className="hero-banner__container"
             data-sm-src={mobileHero}
@@ -28,9 +28,9 @@ class HeroBanner extends Component {
             <div className="hero-banner__inner">
               <div className="hero-banner__content">
                 <h1 className="hero-banner__heading">{Translate('heroBanner.paperBooks.heading')}</h1>
-                <p className="hero-banner__text">Hero Banner Content</p>
+                <p className="hero-banner__text">{Translate('heroBanner.paperBooks.text')}</p>
                 <div className="hero-banner__btns">
-                  <a href="#" className="hero-banner__btn--cta hero-banner__btn">Call to action</a>
+                  <a href="#" className="hero-banner__btn--cta hero-banner__btn">{Translate('heroBanner.button')}</a>
                 </div>
               </div>
             </div>
@@ -39,7 +39,6 @@ class HeroBanner extends Component {
       </section>
     );
   }
-
 }
 
 export default HeroBanner;
