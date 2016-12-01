@@ -6,7 +6,7 @@ class FeatureBit extends Component {
     // TODO: need to find a better approach or implement again here
     window.addEventListener('load', function() {
       new window.FeatureBitInDOM([this.el]).update();
-    }, false);
+    }.bind(this), false);
   }
 
   render() {
