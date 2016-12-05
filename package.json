@@ -13,7 +13,7 @@
     "stylus": "^0.54.5"
   },
   "dependencies": {
-    "blurb-buildkit": "https://s3-us-west-2.amazonaws.com/blurb-books-build-artifacts/jobs/Buildkit-Artifact/1211/buildkit-dist.tgz",
+    "blurb-buildkit": "https://s3-us-west-2.amazonaws.com/blurb-books-build-artifacts/jobs/Buildkit-Artifact/1214/buildkit-dist.tgz",
     "counterpart": "^0.17.6",
     "history": "4.2.0",
     "react": "~15.4.0",

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import HeroBanner from './HeroBanner';
-import Header from './Header';
 
 import Translate from 'counterpart';
 import Locale from '../utils/Locale';
@@ -28,7 +27,6 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Header />
         <HeroBanner />
       </div>
     );
