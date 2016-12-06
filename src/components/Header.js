@@ -5,13 +5,8 @@ import svgSprite from '../img/icons.svg';
 
 class Header extends Component {
 
-  componentDidUpdate() {
-    this.updateModule();
-  }
-
-  updateModule() {
-    Buildkit.resetModuleView('main [data-controller="controlsNav"]');
-    Buildkit.resetModuleView('main [data-controller="languageSelect"]');
+  componentDidMount() {
+    Buildkit.resetModuleView('[data-controller="controlsNav"]');
   }
 
   render() {

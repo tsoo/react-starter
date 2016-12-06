@@ -7,6 +7,10 @@ import FeatureBit from './FeatureBit';
 
 class HeroBanner extends Component {
 
+  componentDidMount() {
+    this.updateModule();
+  }
+
   componentDidUpdate() {
     this.updateModule();
   }
