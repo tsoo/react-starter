@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.scss';
-import HeroBanner from './HeroBanner';
+import  HeroBanner  from 'reactkit/src/components/HeroBanner.js';
+import  Button  from 'reactkit/src/components/Button.js';
 
 import Translate from 'counterpart';
 import Locale from '../utils/Locale';
@@ -25,9 +26,17 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div>
-        <HeroBanner />
+        <HeroBanner
+          mobileImage={require('../img/home-mobile-react-starter.jpg')}
+          desktopImage={require('../img/home-desktop-react-starter.jpg')}
+          heading={Translate('heroBanner.paperBooks.heading')}
+          text={Translate('heroBanner.paperBooks.text')}
+          button={Translate('heroBanner.button')}
+          />
+        <Button handleClick={null} ctaText="text" ctaClass="btn--mint-on-white" ctaHref='/getting-started'/>
       </div>
     );
   }

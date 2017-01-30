@@ -41,6 +41,11 @@
     "postcss-loader": "1.0.0",
     "promise": "7.1.1",
     "react-addons-test-utils": "^15.4.1",
+    "//": [
+      "installing reactkit using the GitHub shortcut syntax (gaurav21r/privaterepo#master in this case)",
+      "which tries all of ssh, HTTPS, and Git, and will use your ssh credentials, or embedding the ",
+      "username and password in the repository URL https://github.com/npm/npm/issues/11567"],
+    "reactkit": "blurb/reactkit#master",
     "react-dev-utils": "^0.3.0",
     "react-test-renderer": "^15.4.1",
     "recursive-readdir": "2.1.0",

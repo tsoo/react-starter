@@ -98,10 +98,13 @@ module.exports = {
     ],
     loaders: [
       // Process JS with Babel.
+      // excluding all node modules except for reactkit
+      // https://github.com/webpack/webpack/issues/2031
+      // https://github.com/babel/babel-loader/issues/149 
       {
         test: /\.(js|jsx)$/,
-        include: paths.appSrc,
-        loader: 'babel',
+        include: [paths.appSrc, /node_modules\/reactkit/],
+        loader: 'babel-loader',
         query: {
 
           // This is a feature of `babel-loader` for webpack (not Babel itself).
