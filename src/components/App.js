@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.scss';
 import  HeroBanner  from 'reactkit/src/components/HeroBanner.js';
-import  Button  from 'reactkit/src/components/Button.js';
+import  CreateButton  from 'reactkit/src/components/CreateButton.js';
 
 import Translate from 'counterpart';
 import Locale from '../utils/Locale';
@@ -36,7 +36,11 @@ class App extends Component {
           text={Translate('heroBanner.paperBooks.text')}
           button={Translate('heroBanner.button')}
           />
-        <Button handleClick={null} ctaText="text" ctaClass="btn--mint-on-white" ctaHref='/getting-started'/>
+        <CreateButton
+          onClick={null}
+          text="text"
+          className="btn--mint-on-white"
+          href='/getting-started'/>
       </div>
     );
   }
